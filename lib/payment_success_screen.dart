@@ -6,14 +6,14 @@ class PaymentSuccessScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200], // Light background color
+      backgroundColor: Colors.grey[200], 
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(height: 70),
-            _buildPaymentInfoContainer(), // New Container with Payment Details, Course Details, and Barcode
+            _buildPaymentInfoContainer(),
             SizedBox(height: 50),
             _buildDoneButton(context),
           ],
@@ -22,12 +22,11 @@ class PaymentSuccessScreen extends StatelessWidget {
     );
   }
 
-  // Payment info container that combines payment details, course details, and barcode
   Widget _buildPaymentInfoContainer() {
     return LayoutBuilder(
       builder: (context, constraints) {
         return Stack(
-          clipBehavior: Clip.none, // To allow overflow for the CircleAvatar
+          clipBehavior: Clip.none,
           children: [
             Container(
               padding: EdgeInsets.all(16),
@@ -53,14 +52,13 @@ class PaymentSuccessScreen extends StatelessWidget {
                 ],
               ),
             ),
-            // Positioned CircleAvatar at the top center of the container
             Positioned(
-              top: -45, // Place the avatar above the container
-              left: (constraints.maxWidth / 2) - 40,  // Center it horizontally
+              top: -45,
+              left: (constraints.maxWidth / 2) - 40,
               child: Stack(
                 alignment: Alignment.center,
                 children: [
-                  _buildBackgroundDecorations(), // Confetti-like decorations around the success icon
+                  _buildBackgroundDecorations(),
                   CircleAvatar(
                     radius: 40,
                     backgroundColor: const Color.fromARGB(255, 34, 214, 103),
@@ -75,7 +73,6 @@ class PaymentSuccessScreen extends StatelessWidget {
     );
   }
 
-  // Payment success and amount details
   Widget _buildPaymentDetails() {
     return Column(
       children: [
@@ -97,12 +94,11 @@ class PaymentSuccessScreen extends StatelessWidget {
     );
   }
 
-  // Course details section (ID and invoice)
   Widget _buildCourseDetails() {
     return Container(
       padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: const Color.fromARGB(197, 221, 220, 220), // White background for the card
+        color: const Color.fromARGB(197, 221, 220, 220),
         borderRadius: BorderRadius.circular(8),
         boxShadow: [
           BoxShadow(
@@ -118,30 +114,30 @@ class PaymentSuccessScreen extends StatelessWidget {
           Row(
             children: [
               CircleAvatar(
-                backgroundImage: AssetImage('assets/images/student3.png'), // Replace with actual avatar
-                radius: 12, // Small avatar size
+                backgroundImage: AssetImage('assets/images/student3.png'),
+                radius: 12,
               ),
-              SizedBox(width: 8), // Spacing between avatar and name
+              SizedBox(width: 8),
               Text(
                 'Christiana Amandla',
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
-                  color: Colors.black54, // Slightly faded color
+                  color: Colors.black54,
                 ),
               ),
             ],
           ),
-          SizedBox(height: 12), // Spacing between name and course title
+          SizedBox(height: 12),
           Text(
             'Adobe Xd Editing Course',
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w600,
-              color: Colors.black, // Prominent course name
+              color: Colors.black,
             ),
           ),
-          SizedBox(height: 50), // Spacing between course title and ID/Invoice section
+          SizedBox(height: 50),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -154,7 +150,6 @@ class PaymentSuccessScreen extends StatelessWidget {
     );
   }
 
-  // Helper function for ID/Invoice text with redesigned look
   Widget _buildIconText(String label, String text) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -163,16 +158,16 @@ class PaymentSuccessScreen extends StatelessWidget {
           label,
           style: TextStyle(
             fontSize: 12,
-            color: Colors.grey, // Light color for labels
+            color: Colors.grey,
           ),
         ),
-        SizedBox(height: 8), // Spacing between label and value
+        SizedBox(height: 8),
         Text(
           text,
           style: TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.bold,
-            color: Colors.black, // Bold value text
+            color: Colors.black,
           ),
         ),
         SizedBox(height: 5),
@@ -181,22 +176,20 @@ class PaymentSuccessScreen extends StatelessWidget {
   }
 
 
-  // Barcode section
   Widget _buildBarcode() {
     return BarcodeWidget(
-      barcode: Barcode.code128(), // Barcode type
-      data: 'TA11231PW', // Barcode data
+      barcode: Barcode.code128(),
+      data: 'TA11231PW',
       width: 340,
       height: 70,
     );
   }
 
-  // Background decorations around the success icon (confetti-like shapes)
   Widget _buildBackgroundDecorations() {
     return Container(
-      height: 100, // Adjust size to fit the success icon
+      height: 100,
       width: 100,
-      child: Stack(
+      child: const Stack(
         children: [
           Positioned(
             top: 30,
@@ -243,11 +236,10 @@ class PaymentSuccessScreen extends StatelessWidget {
     );
   }
 
-  // Done button
   Widget _buildDoneButton(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pop(context); // Return to the previous screen
+        Navigator.pop(context);
       },
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 15),

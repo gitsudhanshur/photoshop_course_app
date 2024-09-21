@@ -19,7 +19,7 @@ class CourseDetailsScreen extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.notifications_none),
             onPressed: () {
-              // Notifications action
+              
             },
           ),
         ],
@@ -38,14 +38,13 @@ class CourseDetailsScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 16),
-            _buildEnrollButton(context), // Button placed outside ListView, fixed at bottom
+            _buildEnrollButton(context), 
           ],
         ),
       ),
     );
   }
 
-  // Course information section
   Widget _buildCourseInfoSection() {
     return Container(
       padding: EdgeInsets.all(16.0),
@@ -86,7 +85,6 @@ class CourseDetailsScreen extends StatelessWidget {
     );
   }
 
-  // Helper function to build the icon with text
   Widget _buildIconText(IconData icon, String text) {
     return Row(
       children: [
@@ -106,7 +104,6 @@ Widget _buildStudentAvatars() {
     'assets/images/student5.png',
   ];
 
-  // Generate the list of avatars using different images
   return Row(
     children: studentImages.map((imagePath) {
       return Padding(
@@ -121,7 +118,6 @@ Widget _buildStudentAvatars() {
 }
 
 
-  // Video section
   Widget _buildVideoSection() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -142,7 +138,6 @@ Widget _buildStudentAvatars() {
     );
   }
 
-  // Video list item
   Widget _buildVideoListItem(String title, String duration) {
     return Container(
       margin: EdgeInsets.only(bottom: 16),
@@ -186,7 +181,7 @@ Widget _buildStudentAvatars() {
           Spacer(),
           OutlinedButton(
             onPressed: () {
-              // Play video action
+              
             },
             style: OutlinedButton.styleFrom(
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8), 
@@ -212,47 +207,45 @@ Widget _buildStudentAvatars() {
 
   Widget _buildEnrollButton(BuildContext context) {
   return Row(
-    mainAxisAlignment: MainAxisAlignment.center, // Center the row
+    mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        // Container with the image (icon)
         Container(
-          width: 50,  // Adjust the size of the icon box as needed
+          width: 50, 
           height: 50,
           decoration: BoxDecoration(
-            color: Color.fromARGB(255, 172, 240, 71),  // Light green color (replace as needed)
-            borderRadius: BorderRadius.circular(8), // Rounded corners
+            color: Color.fromARGB(255, 172, 240, 71), 
+            borderRadius: BorderRadius.circular(8), 
           ),
           child: Center(
             child: Image.asset(
-              'assets/images/bookmark.png', // Replace with your image asset
-              width: 30, // Adjust the size of the image
+              'assets/images/bookmark.png',
+              width: 30,
               height: 30,
             ),
           ),
         ),
-        SizedBox(width: 16), // Spacing between the icon and the button
+        SizedBox(width: 16),
 
-        // "Enroll Now" button
         Expanded(
           child: GestureDetector(
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => UserDashboardScreen()), // Navigate to the new screen
+                MaterialPageRoute(builder: (context) => UserDashboardScreen()),
               );
             },
             child: Container(
-              height: 50,  // Make the button's height match the icon
+              height: 50, 
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 172, 240, 71),  // Same light green color
-                borderRadius: BorderRadius.circular(8),  // Rounded corners
+                color: Color.fromARGB(255, 172, 240, 71), 
+                borderRadius: BorderRadius.circular(8), 
               ),
               child: Center(
                 child: Text(
                   'Enroll Now',
                   style: TextStyle(
                     fontSize: 18,
-                    color: Colors.black, // Black text color
+                    color: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
